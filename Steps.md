@@ -135,3 +135,84 @@ my-vanilla-js-project/
 
 I has created `homeQuantityToggle` in `quantityToggle.js`, enabling users to update product quantities interactively.
 
+=====================================================
+**_ Add To Cart Functionality _**
+=====================================================
+
+# Steps to Define the addToCart Function
+
+## Step 1: Find Current Card Price and Quantity
+
+- Select the current card element based on the provided `id`.
+- Retrieve the product quantity from the current card element.
+- Retrieve the product price from the current card element.
+
+## Conclusion
+
+You've defined the `addToCart` function, enabling users to add products to their cart with the provided quantity and price.
+
+===================================================================
+**_ Steps for Retrieving Cart Products from Local Storage _**
+===================================================================
+
+## Step 1: Incorporate `getCartProductFromLocalStorage` into `addToCart`
+
+## Step 2: Define `getCartProductFromLocalStorage`
+
+## Step 3: Retrieve Cart Products by using `localStorage.getItem()`
+
+## Step 4: Check for Null or Undefined Cart Products
+
+## Step 5: Parse Cart Products
+
+## Step 6: Return Cart Products
+
+======================================================================
+**_ Steps to Update Product Price Before Adding to Local Storage _**
+======================================================================
+
+## Step 1: Extract Price Without Currency Symbol
+
+- Use `replace()` to remove the currency symbol (`₹`) from the product price.
+
+## Step 2: Calculate Total Price
+
+- Multiply the extracted price by the product quantity to calculate the total price.
+
+## Step 3: Prepare Product Data
+
+- Create an object containing the product `id`, `quantity`, and updated `price`.
+
+## Step 4: Add Product Data to Cart Array
+
+- Push the product object to the existing cart array.
+
+## Step 5: Convert Cart Array to JSON and Store in Local Storage
+
+- Convert the updated cart array to JSON format using `JSON.stringify()`.
+- Store the JSON string in local storage under a designated key.
+
+======================================================================
+**_ Handle Duplicate Values _**
+======================================================================
+
+## Use the find() method to search for existing products in the cart array based on their IDs.
+
+## If an existing product is found and the local quantity is greater than 1, update the quantity and price of the existing item in the cart.
+
+## Ensure that the quantity and price are updated only for the existing item in the cart, not for duplicate entries.
+
+## Map through the existing cart items and update the quantity and price of the matching product.
+
+## Update the cart array in local storage with the updated cart items.
+
+## If an existing product is found, return false to prevent adding duplicate entries to the cart.
+
+====================================================
+**_ Update Cart Value on Page Load _**
+====================================================
+
+## Call the updateCartValue function whenever the page loads to ensure the cart value is updated.
+
+## Call the updateCartValue function inside the function responsible for retrieving data from local storage.
+

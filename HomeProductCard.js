@@ -1,3 +1,4 @@
+import { addToCart } from "./addToCart";
 import { homeQualityToggle } from "./HomeQualityToggle";
 
 
@@ -28,6 +29,11 @@ export const showProductContainer = (products) => {
     productClone.querySelector(".stockElement").addEventListener("click", (event) => {
         homeQualityToggle(event, id, stock)
       });
+
+      productClone
+        .querySelector(".add-to-cart-button").addEventListener("click", (event) => {
+          addToCart(event, id, stock)
+        });
 
     productContainer.append(productClone);
   });
