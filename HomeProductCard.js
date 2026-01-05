@@ -1,3 +1,6 @@
+import { homeQualityToggle } from "./HomeQualityToggle";
+
+
 const productContainer = document.querySelector("#productContainer");
 const productTemplate = document.querySelector("#productTemplate");
 
@@ -7,9 +10,11 @@ export const showProductContainer = (products) => {
   }
 
   products.forEach((curProd) => {
-    const { name, category, price, stock, description, image } = curProd;
+    const { id, name, category, price, stock, description, image } = curProd;
 
     const productClone = document.importNode(productTemplate.content, true);
+
+    productClone.querySelector("#cardValue").setAttribute("id", `card${id}`);
 
     productClone.querySelector(".productName").textContent = name;
     productClone.querySelector(".category").textContent = category;
@@ -19,6 +24,10 @@ export const showProductContainer = (products) => {
     productClone.querySelector(".productImage").alt = name;
     productClone.querySelector(".productPrice").textContent = `Rs${price}`;
     productClone.querySelector(".productActualPrice").textContent = `Rs${price * 4}`;
+
+    productClone.querySelector(".stockElement").addEventListener("click", (event) => {
+        homeQualityToggle(event, id, stock)
+      });
 
     productContainer.append(productClone);
   });

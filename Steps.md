@@ -85,3 +85,53 @@ my-vanilla-js-project/
 
 - I has created a function that dynamically populates the product container with product information based on the provided array of products.
 
+=============================================================
+**_ # Steps to Define the homeQuantityToggle Function _**
+=============================================================
+
+# Steps to Define the homeQuantityToggle Function
+
+## Step 1: Create a New JavaScript File
+
+- Create `quantityToggle.js` to contain `homeQuantityToggle`.
+
+## Step 2: Define the Function
+
+- Define `homeQuantityToggle(event, id, stock)`.
+
+## Step 3: Select Current Card Element
+
+- Use `document.querySelector()` to select the card element based on `id`.
+
+## Step 4: Retrieve Product Quantity
+
+- Retrieve product quantity using `querySelector()`.
+
+## Step 5: Parse Quantity Attribute
+
+- Parse `data-quantity` attribute to an integer.
+
+## Step 6: Handle Increment Event
+
+- Increment quantity if event target is `"cartIncrement"` and quantity < stock.
+
+## Step 7: Handle Decrement Event
+
+- Decrement quantity if event target is `"cartDecrement"` and quantity > 1.
+
+## Step 8: Update Product Quantity Display
+
+- Update text content of product quantity element.
+
+## Step 9: Update Quantity Attribute
+
+- Set `data-quantity` attribute to new quantity.
+
+## Step 10: Return Quantity
+
+- Return updated quantity.
+
+## Conclusion
+
+I has created `homeQuantityToggle` in `quantityToggle.js`, enabling users to update product quantities interactively.
+
