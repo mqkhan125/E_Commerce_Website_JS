@@ -1,4 +1,5 @@
 import products from "./Api/Products.json";
+import { fetchQuantityFromLS } from "./fetchQuatityFromLS";
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage";
 
 let cartProducts = getCartProductFromLocalStorage();
@@ -20,12 +21,16 @@ const showCartProduct = () => {
 
     const productClone = document.importNode(templateContainer.content, true);
 
-    
+    const LSActualData = fetchQuantityFromLS(id, price)
+
+        productClone.querySelector("#cardValue").setAttribute("id", `card${id}`);
         productClone.querySelector(".productName").textContent = name;
         productClone.querySelector(".category").textContent = category;
         productClone.querySelector(".productImage").src = image;
         productClone.querySelector(".productImage").alt = name;
-        productClone.querySelector(".productPrice").textContent = `Rs${price}`;
+
+        productClone.querySelector(".productQuantity").textContent = LSActualData.quantity;
+        productClone.querySelector(".productPrice").textContent = LSActualData.price;
 
        cartElement.appendChild(productClone)
   });
