@@ -1,4 +1,5 @@
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage"
+import { showToast } from "./showToast"
 import { updateCartProductTotal } from "./updateCartProductTotal"
 import { updateCartValue } from "./updateCartValue"
 
@@ -20,6 +21,8 @@ export const removeTheCartFromCart = (id) => {
 
       if(removeDiv){
           removeDiv.remove()
+
+          showToast("delete", id);
       }
 
       updateCartValue(filteredProducts)

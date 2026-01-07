@@ -1,5 +1,6 @@
 
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage";
+import { showToast } from "./showToast";
 import { updateCartValue } from "./updateCartValue";
 
 getCartProductFromLocalStorage();
@@ -44,4 +45,6 @@ export const addToCart = (event, id, stock) => {
 
   // update the cart btn value
   updateCartValue(arrLocalStorageProduct);
+
+  showToast("add", id);
 };
