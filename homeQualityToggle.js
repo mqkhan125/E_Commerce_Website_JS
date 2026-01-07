@@ -4,25 +4,25 @@ export const homeQualityToggle = (event, id, stock) => {
 
     const productQuantity = currCardElement.querySelector(".productQuantity");
     // console.log(productQuantity)
-    let quality = parseInt(productQuantity.getAttribute("data-quality") || 1)
+    let quantity = parseInt(productQuantity.getAttribute("data-quality") || 1)
 
     if(event.target.className === "cartIncrement"){
-        if(quality < stock){
-            quality += 1;
+        if(quantity < stock){
+            quantity += 1;
         }
-        else if(quality === stock){
-            quality = stock;
+        else if(quantity === stock){
+            quantity = stock;
         }
     }
 
      if (event.target.className === "cartDecrement") {
-        if(quality > 1){
-            quality -= 1;
+        if(quantity > 1){
+            quantity -= 1;
         }
      }
 
-    productQuantity.innerText = quality;
-    productQuantity.setAttribute('data-quality', quality)
-    return quality;
+    productQuantity.innerText = quantity;
+    productQuantity.setAttribute('data-quality', quantity)
+    return quantity;
 
 };

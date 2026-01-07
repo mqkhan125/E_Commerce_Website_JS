@@ -11,6 +11,9 @@ export const removeTheCartFromCart = (id) => {
     //update the localStorage after removing the item
       localStorage.setItem("cartProductLS", JSON.stringify(filteredProducts));
     
+      // handle increment and descrement btn
+      
+
       // to romove the div section onclick
       let removeDiv = document.querySelector(`#card${id}`)
 
