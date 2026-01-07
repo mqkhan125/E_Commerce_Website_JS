@@ -1,4 +1,5 @@
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage"
+import { updateCartProductTotal } from "./updateCartProductTotal"
 import { updateCartValue } from "./updateCartValue"
 
 export const removeTheCartFromCart = (id) => {
@@ -22,4 +23,7 @@ export const removeTheCartFromCart = (id) => {
       }
 
       updateCartValue(filteredProducts)
+
+        // calculating the cart total in our cartProduct page
+         updateCartProductTotal()
 }

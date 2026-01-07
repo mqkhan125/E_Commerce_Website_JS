@@ -1,4 +1,5 @@
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage";
+import { updateCartProductTotal } from "./updateCartProductTotal";
 
 export const incrementDecrementBtn = (event, id, price, stock) => {
     let currentCartElement = document.querySelector(`#card${id}`)
@@ -50,4 +51,8 @@ export const incrementDecrementBtn = (event, id, price, stock) => {
     // update price and quantity in UI 
     productQuantity.innerText = quantity;
     productPrice.innerText = localStoragePrice;
+
+       // calculating the cart total in our cartProduct page
+       updateCartProductTotal()
+
 }

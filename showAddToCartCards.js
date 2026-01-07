@@ -3,6 +3,7 @@ import { fetchQuantityFromLS } from "./fetchQuatityFromLS";
 import { getCartProductFromLocalStorage } from "./getCartProductFromLocalStorage";
 import { incrementDecrementBtn } from "./incrementDecrementBtn";
 import { removeTheCartFromCart } from "./removeTheCardFromCart";
+import { updateCartProductTotal } from "./updateCartProductTotal";
 
 let cartProducts = getCartProductFromLocalStorage();
 
@@ -49,4 +50,8 @@ const showCartProduct = () => {
   });
 };
 
-showCartProduct();
+ // show the cartProducts
+   showCartProduct();
+
+   // calculating the cart total in our cartProduct page
+   updateCartProductTotal()
