@@ -738,38 +738,46 @@ footer {
 
 /***** End Footer Section *****/
 
-/**** Our Home product section  Starts ***/
+/**** Our Home product section  Starts ****/
+
 #productContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 36rem); 
   gap: 4.8rem;
-
-  & .information {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 1rem;
-  }
+  justify-content: center;
 }
 
+
+/* product card */
 .cards {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 2.5rem;
-  width: 36rem;
+  flex-direction: column;
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 36rem;
+
   padding: 1.6rem;
-  /* max-width: 1000px; */
-  margin: 1.8vh auto;
+  margin: 0;
+
+  background-color: var(--backgroundSecondary);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border-radius: 0.3rem;
-  /*border: 0.1rem solid #ccc;
-  */
-  -webkit-border-radius: 0.2rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
-  -webkit-border-radius: 0.3rem;
+  border-radius: 0.6rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards:hover {
+  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px;
+}
+
+/* card content */
+#productContainer .information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
 }
 
 .category {
@@ -778,29 +786,24 @@ footer {
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
   border-radius: 10rem;
-  -webkit-border-radius: 10rem;
-  -moz-border-radius: 10rem;
-  -ms-border-radius: 10rem;
-  -o-border-radius: 10rem;
 }
 
 .productImage {
-  max-width: 100%;
-  width: 32rem;
+  width: 100%;
+  max-width: 28rem;
   height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .productPriceElement,
 .productQuantityElement,
 .productStockElement {
   display: flex;
-  gap: 2rem;
   align-items: center;
-  text-align: center;
-}
-
-.productPriceElement {
-  margin: 0.8rem 0;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.6rem;
 }
 
 .productProperty,
@@ -812,48 +815,36 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  border: 0.2rem solid var(--borderColor);
-  border-radius: 0.8rem;
+  width: 100%;
+  max-width: 22rem;
   margin: 0.8rem 0;
-
-  & button {
-    background-color: transparent;
-    color: var(--buttonColor);
-    font-size: 2rem;
-    padding: 0.6rem 2rem;
-    font-weight: bold;
-    border: none;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:first-child {
-      border-right: 0.1rem solid var(--borderColor);
-      border-radius: 0;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      -o-border-radius: 0;
-    }
-
-    &:last-child {
-      border-left: 0.1rem solid var(--borderColor);
-      border-radius: 0;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      -o-border-radius: 0;
-    }
-  }
-
-  .productQuantity {
-    padding: 0rem 3rem;
-    margin: 0;
-    font-weight: bold;
-  }
 }
-/**** Our Home product section Ends  ****/
+
+.stockElement button {
+  background-color: transparent;
+  color: var(--buttonColor);
+  font-size: 2rem;
+  padding: 0.6rem 2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.stockElement button:first-child {
+  border-right: 0.1rem solid var(--borderColor);
+}
+
+.stockElement button:last-child {
+  border-left: 0.1rem solid var(--borderColor);
+}
+
+.productQuantity {
+  text-align: center;
+  font-weight: bold;
+}
+
+/**** Our Home product section Ends ****/
+
 
 #cartValue {
   background-color: var(--buttonColor);
@@ -973,7 +964,6 @@ footer {
 }
 
 .productOrderTotal {
-  /* background-color: rgb(60, 60, 60); */
   max-width: 30rem;
 
   & div {
@@ -1083,9 +1073,10 @@ footer {
     padding: 0 0.6rem;
   }
 
-  .section-products #productContainer {
-    grid-template-columns: repeat(2, minmax(33%, 1fr));
-  }
+ .section-products #productContainer {
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+}
+
 
   .section-hero .hero-heading {
     font-size: 4.4rem;
@@ -1182,11 +1173,6 @@ footer {
   .remove-to-cart-button {
     grid-column: 4 / -1;
   }
-
-  /* footer .grid-four--cols {
-    grid-template-columns: repeat(1, minmax(100%, 1fr));
-    text-align: center;
-  } */
 
   .section-navbar .container {
     flex-direction: column;
